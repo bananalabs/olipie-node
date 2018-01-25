@@ -6,7 +6,12 @@ module.exports = {
     find: [],
     get: [],
     create: [],
-    update: [],
+    update: [
+      async function(context) {
+        context.id = context.data.id;
+        return context;
+      }
+    ],
     patch: [],
     remove: []
   },
