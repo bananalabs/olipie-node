@@ -13,7 +13,6 @@ const rest = require('@feathersjs/express/rest');
 const handler = require('@feathersjs/errors/handler');
 const notFound = require('@feathersjs/errors/not-found');
 
-const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
 
@@ -38,8 +37,6 @@ app.configure(rest());
 
 
 app.configure(sequelize);
-// Configure other middleware (see `middleware/index.js`)
-app.configure(middleware);
 // Set up our services (see `services/index.js`)
 app.configure(services);
 // Configure a middleware for 404s and the error handler

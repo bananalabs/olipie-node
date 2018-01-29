@@ -9,9 +9,6 @@ const DataTypes = Sequelize.DataTypes;module.exports = function (app) {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
     },
-    email: {
-      type: DataTypes.STRING
-    },
     name: {
       type: DataTypes.STRING
     }

@@ -2,6 +2,7 @@
 const createService = require('feathers-sequelize');
 const createModel = require('../../models/account.model');
 const hooks = require('./account.hooks');
+const verifyToken = require('../../middleware/verifyToken');
 
 module.exports = function (app) {
   const Model = createModel(app);
@@ -14,7 +15,7 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use('/account', createService(options));
+  app.use('/account', verifyToken(), createService(options));
 
   // Get our initialized service so that we can register hooks and filters
   const service = app.service('account');

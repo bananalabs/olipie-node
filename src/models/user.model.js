@@ -14,6 +14,13 @@ const DataTypes = Sequelize.DataTypes;module.exports = function (app) {
       type: DataTypes.STRING
     },
 
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true
+      }
+    },
+
     profileColor: {
       type: DataTypes.STRING
     },
